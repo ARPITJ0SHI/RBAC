@@ -82,10 +82,9 @@ export default function LoginPage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: `linear-gradient(135deg, 
-          ${alpha(theme.palette.primary.main, 0.1)} 0%, 
-          ${alpha(theme.palette.secondary.main, 0.1)} 50%,
-          ${alpha(theme.palette.primary.main, 0.1)} 100%)`,
+        backgroundImage: 'url("https://cintel.co/wp-content/uploads/2023/11/ethical-hacking-cintel.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         position: 'relative',
         overflow: 'hidden',
         '&::before': {
@@ -95,10 +94,8 @@ export default function LoginPage() {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: 'radial-gradient(circle at 25px 25px, rgba(0, 0, 0, 0.1) 2%, transparent 0%)',
-          backgroundSize: '50px 50px',
-          opacity: 0.4,
-        },
+          backgroundColor: alpha(theme.palette.background.default, 0.7),
+        }
       }}
     >
       <Container 
@@ -109,6 +106,8 @@ export default function LoginPage() {
           justifyContent: 'center',
           minHeight: '100vh',
           p: 3,
+          position: 'relative',
+          zIndex: 1
         }}
       >
         <Paper
@@ -173,9 +172,9 @@ export default function LoginPage() {
             )}
           </Box>
 
-          <Typography 
+          <Typography
             variant="h4" 
-            component="h1" 
+            component="h1"
             gutterBottom
             sx={{
               fontWeight: 700,
@@ -251,7 +250,7 @@ export default function LoginPage() {
                   fullWidth
                   label="Password"
                   name="password"
-                  type={'password'}
+                  type={showPassword ? 'text' : 'password'}
                   value={formData.password}
                   onChange={handleChange}
                   required
@@ -264,13 +263,13 @@ export default function LoginPage() {
                     ),
                     endAdornment: (
                       <InputAdornment position="end">
-                        {/* <IconButton
+                        <IconButton
                           onClick={() => setShowPassword(!showPassword)}
                           edge="end"
                           size="large"
                         >
                           {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton> */}
+                        </IconButton>
                       </InputAdornment>
                     ),
                   }}
