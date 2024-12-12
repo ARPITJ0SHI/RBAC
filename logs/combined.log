@@ -1,0 +1,42 @@
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:11:29.232Z"}
+{"level":"error","message":"Admin user not found","timestamp":"2024-12-12T17:11:29.473Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:12:04.391Z"}
+{"level":"error","message":"Admin role not found. Please run the seeder first.","timestamp":"2024-12-12T17:12:04.659Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:12:31.636Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T17:12:31.640Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T17:12:31.641Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T17:12:32.103Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T17:12:32.104Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T17:12:32.344Z"}
+{"level":"info","message":"Creating admin user...","timestamp":"2024-12-12T17:12:32.385Z"}
+{"level":"info","message":"Admin user created","timestamp":"2024-12-12T17:12:32.688Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:12:39.289Z"}
+{"level":"info","message":"Admin user has been created/updated successfully","timestamp":"2024-12-12T17:12:39.623Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:15:03.424Z"}
+{"level":"info","message":"Password verification test: true","timestamp":"2024-12-12T17:15:03.905Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:15:34.514Z"}
+{"level":"info","message":"Password verification test using model method: true","timestamp":"2024-12-12T17:15:35.096Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:17:17.478Z"}
+{"level":"info","message":"Password verification test using model method: true","timestamp":"2024-12-12T17:17:18.194Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:20:39.278Z"}
+{"level":"info","message":"Password verification test using model method: false","timestamp":"2024-12-12T17:20:39.716Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:30:05.934Z"}
+{"level":"info","message":"Current hash in database:","timestamp":"2024-12-12T17:30:06.263Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:31:48.209Z"}
+{"level":"info","message":"Direct password verification test: true","timestamp":"2024-12-12T17:31:48.934Z"}
+{"level":"info","message":"Model method password verification test: true","timestamp":"2024-12-12T17:31:49.010Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:43:06.657Z"}
+{"level":"info","message":"Direct password verification test: true","timestamp":"2024-12-12T17:43:07.110Z"}
+{"level":"info","message":"Current hash in database: $2a$10$CE1RnUNMYYinzsPfm3m6HOSYcgyu6tE5nWHInuoYrrY8gMrHQLU5G","timestamp":"2024-12-12T17:43:07.111Z"}
+{"level":"info","message":"Expected hash from Atlas: $2a$10$CE1RnUNMYYinzsPfm3m6HOSYcgyu6tE5nWHInuoYrrY8gMrHQLU5G","timestamp":"2024-12-12T17:43:07.111Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:43:51.440Z"}
+{"level":"info","message":"Direct password verification test: true","timestamp":"2024-12-12T17:43:51.794Z"}
+{"level":"info","message":"Current hash in database: $2a$10$CE1RnUNMYYinzsPfm3m6HOSYcgyu6tE5nWHInuoYrrY8gMrHQLU5G","timestamp":"2024-12-12T17:43:51.795Z"}
+{"level":"info","message":"Expected hash from Atlas: $2a$10$CE1RnUNMYYinzsPfm3m6HOSYcgyu6tE5nWHInuoYrrY8gMrHQLU5G","timestamp":"2024-12-12T17:43:51.795Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:50:43.577Z"}
+{"level":"info","message":"Direct password verification test: false","timestamp":"2024-12-12T17:50:44.001Z"}
+{"level":"info","message":"Current hash in database: $2a$10$mRFawQPcqWYAH3Dt/bMZWuxJm91/MaBJ0HbVDWkAgSYx4XyGbYN4q","timestamp":"2024-12-12T17:50:44.002Z"}
+{"level":"info","message":"Expected hash from Atlas: $2a$10$mRFawQPcqWYAH3Dt/bMZWuxJm91/MaBJ0HbVDWkAgSYx4XyGbYN4q","timestamp":"2024-12-12T17:50:44.002Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-12-12T17:51:15.977Z"}
+{"level":"info","message":"Direct password verification test: true","timestamp":"2024-12-12T17:51:16.415Z"}
+{"level":"info","message":"Current hash in database: $2a$10$L8XkggpUAPn4f7t6hDh/I.0RFaC/doN8pNkQsxQU8Et1vwXjHFtp2","timestamp":"2024-12-12T17:51:16.416Z"}

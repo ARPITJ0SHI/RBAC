@@ -1,0 +1,227 @@
+{"level":"info","message":"MongoDB Connected: 127.0.0.1","timestamp":"2024-12-12T14:51:04.116Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T14:51:04.119Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T14:51:04.120Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T14:51:04.189Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T14:51:04.190Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T14:51:04.202Z"}
+{"level":"info","message":"Database seeding completed successfully","timestamp":"2024-12-12T14:51:04.208Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-12-12T14:51:04.211Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Role\"\n    at SchemaObjectId.cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schema\\objectId.js:250:11)\n    at SchemaType.applySetters (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1236:12)\n    at SchemaType.castForQuery (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1653:17)\n    at cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:4906:12)\n    at Query._castConditions (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:2309:10)\n    at model.Query._findOne (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:2632:8)\n    at model.Query.exec (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:4458:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async exports.cloneRole (D:\\Arpit\\FrontendRbac\\backend\\src\\controllers\\role.controller.js:142:24)","timestamp":"2024-12-12T14:53:43.806Z"}
+{"level":"error","message":"ValidationError: Validation failed: description: Role description is required\n    at _done (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:228:19)\n    at D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:204:11\n    at schemaPath.doValidate.updateValidator (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:162:13)\n    at D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1380:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","timestamp":"2024-12-12T14:55:24.079Z"}
+{"level":"error","message":"MongoServerError: E11000 duplicate key error collection: rbac_db.roles index: name_1 dup key: { name: \"testing\" }\n    at InsertOneOperation.execute (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongodb\\lib\\operations\\insert.js:51:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async tryOperation (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:199:20)\n    at async executeOperation (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:69:16)\n    at async Collection.insertOne (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongodb\\lib\\collection.js:154:16)","timestamp":"2024-12-12T14:57:12.345Z"}
+{"level":"error","message":"TypeError: role.remove is not a function\n    at exports.deleteRole (D:\\Arpit\\FrontendRbac\\backend\\src\\controllers\\role.controller.js:116:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-12-12T14:57:29.903Z"}
+{"level":"error","message":"TypeError: role.remove is not a function\n    at exports.deleteRole (D:\\Arpit\\FrontendRbac\\backend\\src\\controllers\\role.controller.js:116:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-12-12T14:57:57.243Z"}
+{"level":"error","message":"TypeError: role.remove is not a function\n    at exports.deleteRole (D:\\Arpit\\FrontendRbac\\backend\\src\\controllers\\role.controller.js:116:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-12-12T14:59:12.784Z"}
+{"level":"error","message":"TypeError: role.remove is not a function\n    at exports.deleteRole (D:\\Arpit\\FrontendRbac\\backend\\src\\controllers\\role.controller.js:116:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-12-12T14:59:18.863Z"}
+{"level":"info","message":"MongoDB Connected: 127.0.0.1","timestamp":"2024-12-12T15:02:24.297Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T15:02:24.300Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T15:02:24.300Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T15:02:24.366Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T15:02:24.367Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T15:02:24.375Z"}
+{"level":"info","message":"Database seeding completed successfully","timestamp":"2024-12-12T15:02:24.382Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-12-12T15:02:24.386Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T15:18:36.667Z"}
+{"level":"info","message":"User found, stored hash: $2a$10$llw0G6IyibUob8h5XRt9ZuYGQYwnIp5P/2yL2SmRBCdpFyqkEZnfO","timestamp":"2024-12-12T15:18:36.670Z"}
+{"level":"info","message":"Comparing with provided password: admin123","timestamp":"2024-12-12T15:18:36.670Z"}
+{"level":"info","message":"Direct bcrypt comparison result: true","timestamp":"2024-12-12T15:18:36.754Z"}
+{"level":"info","message":"Model method comparison result: true","timestamp":"2024-12-12T15:18:36.829Z"}
+{"level":"info","message":"MFA required for user: admin@gmail.com","timestamp":"2024-12-12T15:18:36.830Z"}
+{"level":"info","message":"MongoDB Connected: 127.0.0.1","timestamp":"2024-12-12T15:23:23.170Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T15:23:23.173Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T15:23:23.173Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T15:23:23.289Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T15:23:23.296Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T15:23:23.328Z"}
+{"level":"info","message":"Database seeding completed successfully","timestamp":"2024-12-12T15:23:23.338Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-12-12T15:23:23.347Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T15:24:06.147Z"}
+{"level":"info","message":"User found, stored hash: $2a$10$llw0G6IyibUob8h5XRt9ZuYGQYwnIp5P/2yL2SmRBCdpFyqkEZnfO","timestamp":"2024-12-12T15:24:06.152Z"}
+{"level":"info","message":"Comparing with provided password: admin123","timestamp":"2024-12-12T15:24:06.153Z"}
+{"level":"info","message":"Direct bcrypt comparison result: true","timestamp":"2024-12-12T15:24:06.231Z"}
+{"level":"info","message":"Model method comparison result: true","timestamp":"2024-12-12T15:24:06.304Z"}
+{"level":"info","message":"MFA required for user: admin@gmail.com","timestamp":"2024-12-12T15:24:06.304Z"}
+{"level":"error","message":"ValidationError: User validation failed: password: Password is required\n    at Document.invalidate (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\document.js:3318:32)\n    at D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\document.js:3079:17\n    at D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1388:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","timestamp":"2024-12-12T15:30:27.013Z"}
+{"level":"info","message":"Activity logged: USER_CREATED by user 6747118b41baebd770cb9ddd","timestamp":"2024-12-12T15:32:14.822Z"}
+{"level":"error","message":"TypeError: user.remove is not a function\n    at exports.deleteUser (D:\\Arpit\\FrontendRbac\\backend\\src\\controllers\\user.controller.js:237:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-12-12T15:32:18.580Z"}
+{"level":"error","message":"TypeError: user.remove is not a function\n    at exports.deleteUser (D:\\Arpit\\FrontendRbac\\backend\\src\\controllers\\user.controller.js:237:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-12-12T16:18:06.811Z"}
+{"level":"info","message":"MongoDB Connected: 127.0.0.1","timestamp":"2024-12-12T16:18:18.651Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T16:18:18.655Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T16:18:18.656Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T16:18:18.729Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T16:18:18.730Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T16:18:18.740Z"}
+{"level":"info","message":"Database seeding completed successfully","timestamp":"2024-12-12T16:18:18.746Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-12-12T16:18:18.749Z"}
+{"level":"info","message":"Activity logged: USER_DELETED by user 6747118b41baebd770cb9ddd","timestamp":"2024-12-12T16:18:25.137Z"}
+{"level":"info","message":"Activity logged: USER_CREATED by user 6747118b41baebd770cb9ddd","timestamp":"2024-12-12T16:19:59.816Z"}
+{"level":"info","message":"Activity logged: USER_CREATED by user 6747118b41baebd770cb9ddd","timestamp":"2024-12-12T16:20:29.797Z"}
+{"level":"info","message":"Activity logged: USER_UPDATED by user 6747118b41baebd770cb9ddd","timestamp":"2024-12-12T16:21:12.002Z"}
+{"level":"info","message":"Activity logged: USER_UPDATED by user 6747118b41baebd770cb9ddd","timestamp":"2024-12-12T16:21:13.197Z"}
+{"level":"info","message":"Activity logged: USER_UPDATED by user 6747118b41baebd770cb9ddd","timestamp":"2024-12-12T16:40:00.757Z"}
+{"level":"info","message":"Activity logged: USER_UPDATED by user 6747118b41baebd770cb9ddd","timestamp":"2024-12-12T16:40:02.119Z"}
+{"level":"info","message":"Activity logged: USER_UPDATED by user 6747118b41baebd770cb9ddd","timestamp":"2024-12-12T16:41:48.436Z"}
+{"level":"info","message":"Activity logged: USER_UPDATED by user 6747118b41baebd770cb9ddd","timestamp":"2024-12-12T16:41:53.414Z"}
+{"level":"error","message":"Error: 643B0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:c:\\ws\\deps\\openssl\\openssl\\ssl\\record\\rec_layer_s3.c:1590:SSL alert number 80\n","timestamp":"2024-12-12T16:55:05.582Z"}
+{"level":"error","message":"Error: 74150000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:c:\\ws\\deps\\openssl\\openssl\\ssl\\record\\rec_layer_s3.c:1590:SSL alert number 80\n","timestamp":"2024-12-12T16:59:52.073Z"}
+{"level":"error","message":"Error: 04450000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:c:\\ws\\deps\\openssl\\openssl\\ssl\\record\\rec_layer_s3.c:1590:SSL alert number 80\n","timestamp":"2024-12-12T17:05:22.611Z"}
+{"level":"info","message":"MongoDB Connected: cluster0-shard-00-01.mmvjl.mongodb.net","timestamp":"2024-12-12T17:06:51.574Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T17:06:51.578Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T17:06:51.579Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T17:06:56.146Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T17:06:56.149Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T17:06:56.197Z"}
+{"level":"info","message":"Creating admin user...","timestamp":"2024-12-12T17:06:56.232Z"}
+{"level":"info","message":"Admin user created","timestamp":"2024-12-12T17:06:56.416Z"}
+{"level":"info","message":"Database seeding completed successfully","timestamp":"2024-12-12T17:06:56.416Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-12-12T17:06:56.419Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:07:17.646Z"}
+{"level":"info","message":"User found, stored hash: $2a$10$3sL92bMvIwHB0XatiaKtSeb9ETXqcp8Lv006FKl38J5y6Ekh5QpdW","timestamp":"2024-12-12T17:07:17.696Z"}
+{"level":"info","message":"Comparing with provided password: admin123","timestamp":"2024-12-12T17:07:17.697Z"}
+{"level":"info","message":"Direct bcrypt comparison result: false","timestamp":"2024-12-12T17:07:17.784Z"}
+{"level":"info","message":"Model method comparison result: false","timestamp":"2024-12-12T17:07:17.853Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:07:17.853Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:08:56.180Z"}
+{"level":"info","message":"User found, stored hash: $2a$10$3sL92bMvIwHB0XatiaKtSeb9ETXqcp8Lv006FKl38J5y6Ekh5QpdW","timestamp":"2024-12-12T17:08:56.219Z"}
+{"level":"info","message":"Comparing with provided password: admin123","timestamp":"2024-12-12T17:08:56.219Z"}
+{"level":"info","message":"Direct bcrypt comparison result: false","timestamp":"2024-12-12T17:08:56.299Z"}
+{"level":"info","message":"Model method comparison result: false","timestamp":"2024-12-12T17:08:56.372Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:08:56.373Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:09:03.937Z"}
+{"level":"info","message":"User found, stored hash: $2a$10$3sL92bMvIwHB0XatiaKtSeb9ETXqcp8Lv006FKl38J5y6Ekh5QpdW","timestamp":"2024-12-12T17:09:03.976Z"}
+{"level":"info","message":"Comparing with provided password: admin123","timestamp":"2024-12-12T17:09:03.976Z"}
+{"level":"info","message":"Direct bcrypt comparison result: false","timestamp":"2024-12-12T17:09:04.056Z"}
+{"level":"info","message":"Model method comparison result: false","timestamp":"2024-12-12T17:09:04.128Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:09:04.128Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:09:05.403Z"}
+{"level":"info","message":"User found, stored hash: $2a$10$3sL92bMvIwHB0XatiaKtSeb9ETXqcp8Lv006FKl38J5y6Ekh5QpdW","timestamp":"2024-12-12T17:09:05.437Z"}
+{"level":"info","message":"Comparing with provided password: admin123","timestamp":"2024-12-12T17:09:05.438Z"}
+{"level":"info","message":"Direct bcrypt comparison result: false","timestamp":"2024-12-12T17:09:05.520Z"}
+{"level":"info","message":"Model method comparison result: false","timestamp":"2024-12-12T17:09:05.590Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:09:05.591Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:13:15.209Z"}
+{"level":"info","message":"User found, stored hash: $2a$10$3sL92bMvIwHB0XatiaKtSeb9ETXqcp8Lv006FKl38J5y6Ekh5QpdW","timestamp":"2024-12-12T17:13:15.246Z"}
+{"level":"info","message":"Comparing with provided password: admin123","timestamp":"2024-12-12T17:13:15.247Z"}
+{"level":"info","message":"Direct bcrypt comparison result: false","timestamp":"2024-12-12T17:13:15.333Z"}
+{"level":"info","message":"Model method comparison result: false","timestamp":"2024-12-12T17:13:15.413Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:13:15.413Z"}
+{"level":"info","message":"MongoDB Connected: cluster0-shard-00-00.mmvjl.mongodb.net","timestamp":"2024-12-12T17:13:47.321Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T17:13:47.325Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T17:13:47.325Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T17:13:48.250Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T17:13:48.252Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T17:13:48.316Z"}
+{"level":"info","message":"Database seeding completed successfully","timestamp":"2024-12-12T17:13:48.356Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-12-12T17:13:48.359Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:13:56.059Z"}
+{"level":"info","message":"User found, stored hash: $2a$10$3sL92bMvIwHB0XatiaKtSeb9ETXqcp8Lv006FKl38J5y6Ekh5QpdW","timestamp":"2024-12-12T17:13:56.097Z"}
+{"level":"info","message":"Comparing with provided password: admin123","timestamp":"2024-12-12T17:13:56.098Z"}
+{"level":"info","message":"Direct bcrypt comparison result: false","timestamp":"2024-12-12T17:13:56.173Z"}
+{"level":"info","message":"Model method comparison result: false","timestamp":"2024-12-12T17:13:56.243Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:13:56.244Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:14:04.425Z"}
+{"level":"info","message":"User found, stored hash: $2a$10$3sL92bMvIwHB0XatiaKtSeb9ETXqcp8Lv006FKl38J5y6Ekh5QpdW","timestamp":"2024-12-12T17:14:04.462Z"}
+{"level":"info","message":"Comparing with provided password: admin123","timestamp":"2024-12-12T17:14:04.463Z"}
+{"level":"info","message":"Direct bcrypt comparison result: false","timestamp":"2024-12-12T17:14:04.536Z"}
+{"level":"info","message":"Model method comparison result: false","timestamp":"2024-12-12T17:14:04.606Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:14:04.606Z"}
+{"level":"info","message":"MongoDB Connected: cluster0-shard-00-01.mmvjl.mongodb.net","timestamp":"2024-12-12T17:16:21.382Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T17:16:21.385Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T17:16:21.386Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T17:16:22.214Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T17:16:22.215Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T17:16:22.319Z"}
+{"level":"info","message":"Database seeding completed successfully","timestamp":"2024-12-12T17:16:22.362Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-12-12T17:16:22.367Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:16:29.353Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:16:29.485Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:16:29.486Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:16:31.694Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:16:31.826Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:16:31.827Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:16:32.703Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:16:32.821Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:16:32.822Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:16:43.389Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:16:43.509Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:16:43.509Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:17:22.002Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:17:22.125Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:17:22.125Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:17:22.820Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:17:22.926Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:17:22.927Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:17:24.089Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:17:24.196Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:17:24.196Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:21:34.215Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:21:34.324Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:21:34.325Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:24:37.021Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:24:37.149Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:24:37.150Z"}
+{"level":"info","message":"MongoDB Connected: cluster0-shard-00-01.mmvjl.mongodb.net","timestamp":"2024-12-12T17:24:46.813Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T17:24:46.817Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T17:24:46.818Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T17:24:47.280Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T17:24:47.281Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T17:24:47.365Z"}
+{"level":"info","message":"Database seeding completed successfully","timestamp":"2024-12-12T17:24:47.413Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-12-12T17:24:47.419Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:24:50.039Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:24:50.172Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:24:50.173Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:25:37.770Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:25:37.901Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:25:37.902Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:25:45.133Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:25:45.270Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:25:45.271Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:32:02.838Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:32:02.998Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:32:02.998Z"}
+{"level":"info","message":"MongoDB Connected: cluster0-shard-00-00.mmvjl.mongodb.net","timestamp":"2024-12-12T17:38:34.293Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T17:38:34.296Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T17:38:34.297Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T17:38:35.780Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T17:38:35.782Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T17:38:35.831Z"}
+{"level":"info","message":"Creating admin user...","timestamp":"2024-12-12T17:38:35.875Z"}
+{"level":"info","message":"Admin user created","timestamp":"2024-12-12T17:38:36.070Z"}
+{"level":"info","message":"Database seeding completed successfully","timestamp":"2024-12-12T17:38:36.071Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-12-12T17:38:36.081Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:38:49.561Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:38:49.690Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:38:49.691Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:44:35.184Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:44:35.300Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:44:35.300Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:45:16.630Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:45:16.762Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:45:16.762Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:48:22.242Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:48:22.356Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:48:22.357Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:51:41.341Z"}
+{"level":"info","message":"Password verification result: false","timestamp":"2024-12-12T17:51:41.467Z"}
+{"level":"warn","message":"Login failed: Invalid password for email: admin@gmail.com","timestamp":"2024-12-12T17:51:41.467Z"}
+{"level":"info","message":"MongoDB Connected: cluster0-shard-00-00.mmvjl.mongodb.net","timestamp":"2024-12-12T17:55:17.500Z"}
+{"level":"info","message":"Starting database seeding...","timestamp":"2024-12-12T17:55:17.504Z"}
+{"level":"info","message":"Seeding permissions...","timestamp":"2024-12-12T17:55:17.504Z"}
+{"level":"info","message":"19 permissions seeded","timestamp":"2024-12-12T17:55:18.487Z"}
+{"level":"info","message":"Seeding roles...","timestamp":"2024-12-12T17:55:18.490Z"}
+{"level":"info","message":"4 roles seeded","timestamp":"2024-12-12T17:55:18.554Z"}
+{"level":"info","message":"Database seeding completed successfully","timestamp":"2024-12-12T17:55:18.602Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-12-12T17:55:18.607Z"}
+{"level":"info","message":"Login attempt for email: admin@gmail.com","timestamp":"2024-12-12T17:55:29.155Z"}
+{"level":"info","message":"Password verification result: true","timestamp":"2024-12-12T17:55:29.276Z"}
+{"level":"info","message":"MFA required for user: admin@gmail.com","timestamp":"2024-12-12T17:55:29.277Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Permission\"\n    at SchemaObjectId.cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schema\\objectId.js:250:11)\n    at SchemaType.applySetters (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1236:12)\n    at SchemaType.castForQuery (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1653:17)\n    at cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:4906:12)\n    at Query._castConditions (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:2309:10)\n    at model.Query._findOneAndUpdate (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:3406:8)\n    at model.Query.exec (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:4458:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async exports.updatePermission (D:\\Arpit\\FrontendRbac\\backend\\src\\controllers\\permission.controller.js:57:24)","timestamp":"2024-12-12T18:00:24.948Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Permission\"\n    at SchemaObjectId.cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schema\\objectId.js:250:11)\n    at SchemaType.applySetters (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1236:12)\n    at SchemaType.castForQuery (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1653:17)\n    at cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:4906:12)\n    at Query._castConditions (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:2309:10)\n    at model.Query._findOneAndUpdate (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:3406:8)\n    at model.Query.exec (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:4458:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async exports.updatePermission (D:\\Arpit\\FrontendRbac\\backend\\src\\controllers\\permission.controller.js:57:24)","timestamp":"2024-12-12T18:00:35.460Z"}
+{"level":"info","message":"Activity logged: USER_CREATED by user 675b197f15d971d2b1d97f52","timestamp":"2024-12-12T18:02:58.908Z"}
+{"level":"info","message":"Activity logged: USER_UPDATED by user 675b197f15d971d2b1d97f52","timestamp":"2024-12-12T18:03:31.940Z"}
+{"level":"info","message":"Activity logged: USER_DELETED by user 675b197f15d971d2b1d97f52","timestamp":"2024-12-12T18:03:51.068Z"}
+{"level":"error","message":"CastError: Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Permission\"\n    at SchemaObjectId.cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schema\\objectId.js:250:11)\n    at SchemaType.applySetters (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1236:12)\n    at SchemaType.castForQuery (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1653:17)\n    at cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:4906:12)\n    at Query._castConditions (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:2309:10)\n    at model.Query._findOneAndUpdate (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:3406:8)\n    at model.Query.exec (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\query.js:4458:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async exports.updatePermission (D:\\Arpit\\FrontendRbac\\backend\\src\\controllers\\permission.controller.js:57:24)","timestamp":"2024-12-12T18:04:56.816Z"}
+{"level":"error","message":"ValidationError: Validation failed: createdBy: Path `createdBy` is required.\n    at _done (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:228:19)\n    at D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:204:11\n    at schemaPath.doValidate.updateValidator (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:162:13)\n    at D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1380:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","timestamp":"2024-12-12T18:08:16.928Z"}
+{"level":"error","message":"ValidationError: Validation failed: createdBy: Path `createdBy` is required.\n    at _done (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:228:19)\n    at D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:204:11\n    at schemaPath.doValidate.updateValidator (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:162:13)\n    at D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1380:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","timestamp":"2024-12-12T18:08:29.058Z"}
+{"level":"error","message":"ValidationError: Validation failed: createdBy: Path `createdBy` is required.\n    at _done (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:228:19)\n    at D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:204:11\n    at schemaPath.doValidate.updateValidator (D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\helpers\\updateValidators.js:162:13)\n    at D:\\Arpit\\FrontendRbac\\backend\\node_modules\\mongoose\\lib\\schemaType.js:1380:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","timestamp":"2024-12-12T18:10:12.508Z"}

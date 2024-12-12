@@ -1,0 +1,2 @@
+{"level":"error","message":"Admin user not found","timestamp":"2024-12-12T17:11:29.473Z"}
+{"level":"error","message":"Admin role not found. Please run the seeder first.","timestamp":"2024-12-12T17:12:04.659Z"}
