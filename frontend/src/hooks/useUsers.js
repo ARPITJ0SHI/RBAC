@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRBAC } from '../contexts/RBACContext';
 import { userApi } from '../services/userApi';
 
@@ -6,28 +6,48 @@ export function useUsers() {
   const { state, actions } = useRBAC();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [lastFetched, setLastFetched] = useState(null);
 
-  const fetchUsers = async () => {
+  // Cache duration in milliseconds (5 minutes)
+  const CACHE_DURATION = 5 * 60 * 1000;
+
+  const fetchUsers = useCallback(async (forceFetch = false) => {
+    // Return cached data if within cache duration
+    if (!forceFetch && lastFetched && Date.now() - lastFetched < CACHE_DURATION) {
+      return state.users;
+    }
+
     try {
       setLoading(true);
       setError(null);
-      const users = await userApi.getUsers();
+      const users = await userApi.getAllUsers();
       actions.setUsers(users);
+      setLastFetched(Date.now());
+      return users;
     } catch (err) {
       setError(err.message);
+      throw err;
     } finally {
       setLoading(false);
     }
-  };
+  }, [lastFetched, state.users, actions]);
 
   const createUser = async (userData) => {
     try {
       setLoading(true);
       setError(null);
+      
+      // Optimistic update
+      const tempId = Date.now().toString();
+      const optimisticUser = { ...userData, id: tempId, status: 'pending' };
+      actions.addUser(optimisticUser);
+
       const newUser = await userApi.createUser(userData);
-      actions.addUser(newUser);
+      actions.updateUser(newUser); // Replace optimistic with real data
       return newUser;
     } catch (err) {
+      // Rollback optimistic update
+      actions.deleteUser(tempId);
       setError(err.message);
       throw err;
     } finally {
@@ -39,10 +59,17 @@ export function useUsers() {
     try {
       setLoading(true);
       setError(null);
+
+      // Optimistic update
+      const oldUser = state.users.find(u => u.id === id);
+      actions.updateUser({ ...oldUser, ...userData, status: 'updating' });
+
       const updatedUser = await userApi.updateUser(id, userData);
       actions.updateUser(updatedUser);
       return updatedUser;
     } catch (err) {
+      // Rollback optimistic update
+      if (oldUser) actions.updateUser(oldUser);
       setError(err.message);
       throw err;
     } finally {
@@ -54,9 +81,15 @@ export function useUsers() {
     try {
       setLoading(true);
       setError(null);
-      await userApi.deleteUser(id);
+
+      // Optimistic update
+      const userToDelete = state.users.find(u => u.id === id);
       actions.deleteUser(id);
+
+      await userApi.deleteUser(id);
     } catch (err) {
+      // Rollback optimistic update
+      if (userToDelete) actions.addUser(userToDelete);
       setError(err.message);
       throw err;
     } finally {
@@ -66,7 +99,7 @@ export function useUsers() {
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [fetchUsers]);
 
   return {
     users: state.users,
@@ -75,6 +108,6 @@ export function useUsers() {
     createUser,
     updateUser,
     deleteUser,
-    refetch: fetchUsers,
+    refetch: (forceFetch = true) => fetchUsers(forceFetch),
   };
 } 
