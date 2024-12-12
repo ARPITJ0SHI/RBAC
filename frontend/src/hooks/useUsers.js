@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRBAC } from '../contexts/RBACContext';
-import { userApi } from '../services/mockApi';
+import { userApi } from '../services/userApi';
 
 export function useUsers() {
   const { state, actions } = useRBAC();

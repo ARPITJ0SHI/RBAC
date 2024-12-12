@@ -1,6 +1,5 @@
 import { authApi } from './authApi';
-
-const API_URL = 'http://localhost:5000/api';
+import API_URL from '../config/api';
 
 const handleResponse = async (response) => {
   const data = await response.json();
