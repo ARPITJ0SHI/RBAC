@@ -44,6 +44,12 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(attachActivityLogger);
 
+// Debug middleware to log all requests
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
+});
+
 // Health check endpoint
 app.get("/health", (req, res) => {
   res.status(200).json({ status: "healthy", message: "Server is healthy" });
@@ -63,7 +69,18 @@ app.use("/api/sessions", sessionRoutes);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  logger.info(`Server running on port ${PORT}`);
-  initializeDatabase();
-});
+
+// Modified server startup sequence
+const startServer = async () => {
+  try {
+    await initializeDatabase(); // Connect to database first
+    app.listen(PORT, () => {
+      logger.info(`Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    logger.error('Failed to start server:', error);
+    process.exit(1);
+  }
+};
+
+startServer();
