@@ -73,7 +73,7 @@ export const sessionApi = {
     return data.data;
   },
 
-  // Session events that can be subscribed to
+
   EVENTS: {
     SESSION_CREATED: 'SESSION_CREATED',
     SESSION_EXPIRED: 'SESSION_EXPIRED',

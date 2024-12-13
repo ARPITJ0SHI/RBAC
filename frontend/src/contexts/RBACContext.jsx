@@ -1,13 +1,13 @@
 import { createContext, useContext, useReducer } from 'react';
 
-// Initial state
+
 const initialState = {
   users: [],
   roles: [],
   permissions: [],
 };
 
-// Action types
+
 const ActionTypes = {
   SET_USERS: 'SET_USERS',
   ADD_USER: 'ADD_USER',
@@ -23,7 +23,7 @@ const ActionTypes = {
   DELETE_PERMISSION: 'DELETE_PERMISSION',
 };
 
-// Reducer function
+
 function rbacReducer(state, action) {
   switch (action.type) {
     case ActionTypes.SET_USERS:
@@ -90,10 +90,10 @@ function rbacReducer(state, action) {
   }
 }
 
-// Create context
+
 const RBACContext = createContext();
 
-// Context provider component
+
 export function RBACProvider({ children }) {
   const [state, dispatch] = useReducer(rbacReducer, initialState);
 
@@ -119,7 +119,7 @@ export function RBACProvider({ children }) {
   return <RBACContext.Provider value={value}>{children}</RBACContext.Provider>;
 }
 
-// Custom hook for using the RBAC context
+
 export function useRBAC() {
   const context = useContext(RBACContext);
   if (!context) {

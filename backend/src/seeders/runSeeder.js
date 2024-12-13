@@ -6,7 +6,7 @@ const logger = require('../config/logger');
 
 const runSeeder = async () => {
   try {
-    // Connect to MongoDB
+ 
     const uri = process.env.MONGODB_URI;
     if (!uri) {
       logger.error('MONGODB_URI environment variable is not set');
@@ -16,7 +16,7 @@ const runSeeder = async () => {
     await mongoose.connect(uri);
     logger.info('Connected to MongoDB');
 
-    // Run seeder
+ 
     await seedDatabase();
     logger.info('Database seeding completed');
     process.exit(0);

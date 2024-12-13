@@ -39,10 +39,10 @@ export default function PermissionList() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [permissionToDelete, setPermissionToDelete] = useState(null);
 
-  // Get unique categories from permissions
+
   const categories = ['all', ...new Set(state.permissions.map(perm => perm.category))];
 
-  // Filter permissions based on search and category
+
   const filteredPermissions = state.permissions.filter(permission => {
     const matchesSearch = permission.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          permission.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -50,7 +50,7 @@ export default function PermissionList() {
     return matchesSearch && matchesCategory;
   });
 
-  // Group permissions by category
+
   const groupedPermissions = filteredPermissions.reduce((acc, permission) => {
     const category = permission.category || 'Uncategorized';
     if (!acc[category]) {
@@ -98,7 +98,7 @@ export default function PermissionList() {
   };
 
   const checkPermissionConflicts = (permission) => {
-    // Check for role conflicts
+   
     const conflictingRoles = state.roles.filter(role => 
       role.permissions?.includes(permission.name)
     );

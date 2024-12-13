@@ -51,7 +51,6 @@ exports.terminateSession = async (req, res, next) => {
       });
     }
 
-    // Only allow users to terminate their own sessions unless admin
     if (session.userId.toString() !== req.user._id.toString() && req.user.role !== 'admin') {
       return res.status(403).json({
         success: false,
@@ -130,7 +129,6 @@ exports.refreshSession = async (req, res, next) => {
       });
     }
 
-    // Update session expiry
     const newExpiryDate = new Date();
     newExpiryDate.setHours(newExpiryDate.getHours() + 24);
     session.expiresAt = newExpiryDate;

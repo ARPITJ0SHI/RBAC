@@ -68,7 +68,7 @@ export default function PermissionDialog({ open, onClose, permission = null }) {
       newErrors.category = 'Category is required';
     }
 
-    // Check for naming conflicts
+    
     const conflictingPerms = state.permissions.filter(
       p => p.name.toLowerCase() === formData.name.toLowerCase() && p._id !== permission?._id
     );

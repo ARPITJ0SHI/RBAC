@@ -192,10 +192,10 @@ export default function UserManagement() {
       setLoading(true);
       if (selectedUser) {
         const { role, ...userData } = formData;
-        // First update user data
+     
         const updatedUser = await userApi.updateUser(selectedUser._id, userData);
         
-        // If role has changed, update it separately
+        
         if (role !== selectedUser.role._id) {
           await userApi.updateUserRole(selectedUser._id, role);
         }

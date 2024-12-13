@@ -95,7 +95,6 @@ exports.login = async (req, res, next) => {
       });
     }
 
-    // Update last login without triggering password rehash
     await User.findByIdAndUpdate(user._id, { lastLogin: new Date() });
 
     const token = generateToken(user._id);
@@ -132,15 +131,15 @@ exports.verifyMFA = async (req, res, next) => {
       });
     }
 
-    // In production, verify the MFA code using a proper MFA library
-    if (code !== '123456') { // Temporary mock verification
+    
+    if (code !== '123456') {
       return res.status(401).json({
         success: false,
         error: 'Invalid verification code',
       });
     }
 
-    // Update last login without triggering password rehash
+
     await User.findByIdAndUpdate(user._id, { lastLogin: new Date() });
 
     const token = generateToken(user._id);
@@ -210,8 +209,7 @@ exports.refreshToken = async (req, res, next) => {
 
 exports.logout = async (req, res, next) => {
   try {
-    // In production, you might want to blacklist the token
-    // For now, we'll rely on the frontend to remove the token
+    
     res.status(200).json({
       success: true,
       message: 'Logged out successfully',

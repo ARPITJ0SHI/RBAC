@@ -50,7 +50,7 @@ export default function LoginPage() {
 
     try {
       if (mfaRequired) {
-        // Validate MFA code format
+      
         if (!/^\d{6}$/.test(formData.mfaCode)) {
           return;
         }

@@ -11,10 +11,8 @@ const seedDatabase = async () => {
   try {
     logger.info('Starting database seeding...');
 
-    // Create system user for seeding
     const systemUserId = new mongoose.Types.ObjectId();
 
-    // Seed Permissions
     logger.info('Seeding permissions...');
     const permissionPromises = basePermissions.map(permission => 
       Permission.findOneAndUpdate(
@@ -26,13 +24,11 @@ const seedDatabase = async () => {
     const permissions = await Promise.all(permissionPromises);
     logger.info(`${permissions.length} permissions seeded`);
 
-    // Create permission map for role creation
     const permissionMap = permissions.reduce((acc, p) => {
       acc[p.name] = p._id;
       return acc;
     }, {});
 
-    // Seed Roles
     logger.info('Seeding roles...');
     const rolePromises = baseRoles.map(role => {
       const rolePermissions = role.permissions.map(p => permissionMap[p]);
@@ -49,10 +45,8 @@ const seedDatabase = async () => {
     const roles = await Promise.all(rolePromises);
     logger.info(`${roles.length} roles seeded`);
 
-    // Find admin role for admin user creation
     const adminRole = roles.find(r => r.name === 'admin');
 
-    // Create admin user if it doesn't exist
     const adminExists = await User.findOne({ email: 'admin@gmail.com' });
     if (!adminExists) {
       logger.info('Creating admin user...');

@@ -29,7 +29,6 @@ const permissionSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-// Index for faster lookups
 permissionSchema.index({ name: 1 });
 permissionSchema.index({ category: 1 });
 

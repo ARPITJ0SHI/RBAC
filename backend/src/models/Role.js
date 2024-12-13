@@ -33,11 +33,11 @@ const roleSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-// Index for faster lookups
+
 roleSchema.index({ name: 1 });
 roleSchema.index({ level: 1 });
 
-// Pre-save middleware to update level based on parent role
+
 roleSchema.pre('save', async function(next) {
   if (this.parentRole) {
     const parentRole = await this.constructor.findById(this.parentRole);
@@ -48,7 +48,7 @@ roleSchema.pre('save', async function(next) {
   next();
 });
 
-// Method to get effective permissions (including inherited from parent roles)
+
 roleSchema.methods.getEffectivePermissions = async function() {
   let allPermissions = new Set([...this.permissions]);
   
@@ -66,13 +66,13 @@ roleSchema.methods.getEffectivePermissions = async function() {
   return Array.from(allPermissions);
 };
 
-// Method to check if role has specific permission
+
 roleSchema.methods.hasPermission = async function(permissionId) {
   const effectivePermissions = await this.getEffectivePermissions();
   return effectivePermissions.some(p => p.toString() === permissionId.toString());
 };
 
-// Static method to get role hierarchy
+
 roleSchema.statics.getHierarchy = async function() {
   const roles = await this.find()
     .populate('parentRole')

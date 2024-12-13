@@ -62,14 +62,13 @@ exports.updateRole = async (req, res, next) => {
     console.log('Updating role with data:', req.body);
     const { parentRole, ...updateData } = req.body;
 
-    // Handle parent role update
+   
     if (parentRole !== undefined) {
       updateData.parentRole = parentRole;
     }
 
     console.log('Processed update data:', updateData);
 
-    // Check for circular dependency
     if (updateData.parentRole) {
       const parentRoleDoc = await Role.findById(updateData.parentRole);
       if (!parentRoleDoc) {
@@ -79,7 +78,6 @@ exports.updateRole = async (req, res, next) => {
         });
       }
 
-      // Check if the new parent is not a child of current role
       let currentParent = parentRoleDoc;
       while (currentParent) {
         if (currentParent._id.toString() === req.params.id) {
@@ -113,7 +111,6 @@ exports.updateRole = async (req, res, next) => {
 
     console.log('Updated role:', role);
 
-    // Update level for this role and all its children
     await updateRoleLevels(role);
 
     res.status(200).json({
@@ -126,15 +123,12 @@ exports.updateRole = async (req, res, next) => {
   }
 };
 
-// Helper function to update role levels
 async function updateRoleLevels(role) {
-  // Get all roles that have this role as parent
   const childRoles = await Role.find({ parentRole: role._id });
   
   for (const childRole of childRoles) {
     childRole.level = role.level + 1;
     await childRole.save();
-    // Recursively update children's levels
     await updateRoleLevels(childRole);
   }
 }
@@ -150,7 +144,6 @@ exports.deleteRole = async (req, res, next) => {
       });
     }
 
-    // Check if role is assigned to any users
     const usersWithRole = await User.countDocuments({ role: role._id });
     if (usersWithRole > 0) {
       return res.status(400).json({
@@ -159,7 +152,6 @@ exports.deleteRole = async (req, res, next) => {
       });
     }
 
-    // Check if role is parent to other roles
     const childRoles = await Role.countDocuments({ parentRole: role._id });
     if (childRoles > 0) {
       return res.status(400).json({
@@ -182,7 +174,6 @@ exports.deleteRole = async (req, res, next) => {
 exports.getRoleHierarchy = async (req, res, next) => {
   try {
     console.log('Fetching role hierarchy...');
-    // Get all roles with complete data
     const roles = await Role.find()
       .populate({
         path: 'permissions',
@@ -196,11 +187,10 @@ exports.getRoleHierarchy = async (req, res, next) => {
         path: 'createdBy',
         select: 'name email'
       })
-      .lean(); // Convert to plain JavaScript objects
+      .lean(); 
 
     console.log('Found roles:', roles);
 
-    // Transform roles to include all necessary data
     const rolesWithData = roles.map(role => ({
       _id: role._id,
       name: role.name,
@@ -215,7 +205,6 @@ exports.getRoleHierarchy = async (req, res, next) => {
 
     console.log('Transformed roles:', rolesWithData);
 
-    // Build hierarchy from the complete data
     const buildHierarchy = (roles, parentId = null) => {
       return roles
         .filter(role => 

@@ -148,7 +148,7 @@ function AuthProvider({ children }) {
     try {
       const decoded = jwtDecode(token);
       const expiryTime = decoded.exp * 1000;
-      const warningTime = 5 * 60 * 1000; // 5 minutes
+      const warningTime = 5 * 60 * 1000; 
       const timeUntilExpiry = expiryTime - Date.now();
 
       if (timeUntilExpiry <= 0) {

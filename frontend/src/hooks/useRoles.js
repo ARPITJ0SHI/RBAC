@@ -8,11 +8,11 @@ export function useRoles() {
   const [error, setError] = useState(null);
   const [lastFetched, setLastFetched] = useState(null);
 
-  // Cache duration in milliseconds (5 minutes)
+
   const CACHE_DURATION = 5 * 60 * 1000;
 
   const fetchRoles = useCallback(async (forceFetch = false) => {
-    // Return cached data if within cache duration
+ 
     if (!forceFetch && lastFetched && Date.now() - lastFetched < CACHE_DURATION) {
       return state.roles;
     }
@@ -37,16 +37,16 @@ export function useRoles() {
       setLoading(true);
       setError(null);
 
-      // Optimistic update
+    
       const tempId = Date.now().toString();
       const optimisticRole = { ...roleData, id: tempId, status: 'pending' };
       actions.addRole(optimisticRole);
 
       const newRole = await roleApi.createRole(roleData);
-      actions.updateRole(newRole); // Replace optimistic with real data
+      actions.updateRole(newRole); 
       return newRole;
     } catch (err) {
-      // Rollback optimistic update
+     
       actions.deleteRole(tempId);
       setError(err.message);
       throw err;
@@ -60,7 +60,7 @@ export function useRoles() {
       setLoading(true);
       setError(null);
 
-      // Optimistic update
+    
       const oldRole = state.roles.find(r => r.id === id);
       actions.updateRole({ ...oldRole, ...roleData, status: 'updating' });
 
@@ -68,7 +68,7 @@ export function useRoles() {
       actions.updateRole(updatedRole);
       return updatedRole;
     } catch (err) {
-      // Rollback optimistic update
+    
       if (oldRole) actions.updateRole(oldRole);
       setError(err.message);
       throw err;
@@ -82,13 +82,13 @@ export function useRoles() {
       setLoading(true);
       setError(null);
 
-      // Optimistic update
+      
       const roleToDelete = state.roles.find(r => r.id === id);
       actions.deleteRole(id);
 
       await roleApi.deleteRole(id);
     } catch (err) {
-      // Rollback optimistic update
+      
       if (roleToDelete) actions.addRole(roleToDelete);
       setError(err.message);
       throw err;

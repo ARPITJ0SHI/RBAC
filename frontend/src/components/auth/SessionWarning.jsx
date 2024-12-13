@@ -13,7 +13,7 @@ import { useAuth } from '../../contexts/AuthContext';
 
 export default function SessionWarning() {
   const { showSessionWarning = false, refreshSession, logout, sessionExpiry } = useAuth();
-  const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(300); 
 
   useEffect(() => {
     if (!showSessionWarning || !sessionExpiry) return;

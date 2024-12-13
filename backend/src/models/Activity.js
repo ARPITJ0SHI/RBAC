@@ -57,7 +57,6 @@ const activitySchema = new mongoose.Schema({
   timestamps: true,
 });
 
-// Indexes for faster querying
 activitySchema.index({ userId: 1, createdAt: -1 });
 activitySchema.index({ action: 1, createdAt: -1 });
 activitySchema.index({ status: 1 });

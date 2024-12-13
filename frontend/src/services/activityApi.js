@@ -68,7 +68,7 @@ export const activityApi = {
     return data.data;
   },
 
-  // Activity types for consistent logging
+ 
   ACTIVITIES: {
     LOGIN: 'LOGIN',
     LOGOUT: 'LOGOUT',

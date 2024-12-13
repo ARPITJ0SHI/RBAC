@@ -33,9 +33,11 @@ const corsOptions = {
   origin:
     process.env.NODE_ENV === "production"
       ? ["https://rbac-self.vercel.app"]
-      : ["http://localhost:3000"],
+      : ["http://localhost:3000", "http://localhost:5173", "http://127.0.0.1:5173"],
   credentials: true,
   optionsSuccessStatus: 200,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 // Middleware
@@ -44,13 +46,13 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(attachActivityLogger);
 
-// Debug middleware to log all requests
+
 app.use((req, res, next) => {
   logger.info(`${req.method} ${req.url}`);
   next();
 });
 
-// Health check endpoint
+
 app.get("/health", (req, res) => {
   res.status(200).json({ status: "healthy", message: "Server is healthy" });
 });
@@ -70,10 +72,10 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-// Modified server startup sequence
+
 const startServer = async () => {
   try {
-    await initializeDatabase(); // Connect to database first
+    await initializeDatabase(); 
     app.listen(PORT, () => {
       logger.info(`Server running on port ${PORT}`);
     });

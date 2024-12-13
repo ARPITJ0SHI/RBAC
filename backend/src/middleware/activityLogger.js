@@ -24,12 +24,10 @@ const activityLogger = async (userId, action, details, req, metadata = {}, statu
     return activity;
   } catch (error) {
     logger.error('Error logging activity:', error);
-    // Don't throw error to prevent disrupting the main flow
     return null;
   }
 };
 
-// Middleware to attach logger to request object
 exports.attachActivityLogger = (req, res, next) => {
   req.logActivity = (action, details, metadata = {}, status = 'success') => {
     if (req.user) {
@@ -40,5 +38,4 @@ exports.attachActivityLogger = (req, res, next) => {
   next();
 };
 
-// Helper function to log activities directly
 exports.logActivity = activityLogger; 

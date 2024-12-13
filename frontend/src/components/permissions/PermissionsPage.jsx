@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Typography,
@@ -24,13 +24,13 @@ import {
   Check as CheckIcon,
   Close as CloseIcon,
 } from '@mui/icons-material';
-import { permissionsApi } from '../../services/permissionsApi';
+import { usePermissions } from '../../hooks/usePermissions';
 
 const categories = ['User Management', 'Role Management', 'Permission Management', 'System'];
 
 export default function PermissionsPage() {
   const theme = useTheme();
-  const [permissions, setPermissions] = useState([]);
+  const { permissions, loading, error, createPermission, updatePermission, deletePermission } = usePermissions();
   const [openDialog, setOpenDialog] = useState(false);
   const [selectedPermission, setSelectedPermission] = useState(null);
   const [formData, setFormData] = useState({
@@ -39,19 +39,6 @@ export default function PermissionsPage() {
     category: '',
     isActive: true,
   });
-
-  useEffect(() => {
-    loadPermissions();
-  }, []);
-
-  const loadPermissions = async () => {
-    try {
-      const data = await permissionsApi.getAllPermissions();
-      setPermissions(data);
-    } catch (error) {
-      console.error('Failed to load permissions:', error);
-    }
-  };
 
   const handleOpenDialog = (permission = null) => {
     if (permission) {
@@ -90,12 +77,11 @@ export default function PermissionsPage() {
       };
 
       if (selectedPermission) {
-        await permissionsApi.updatePermission(selectedPermission._id, updateData);
+        await updatePermission(selectedPermission._id, updateData);
       } else {
-        await permissionsApi.createPermission(updateData);
+        await createPermission(updateData);
       }
       handleCloseDialog();
-      loadPermissions();
     } catch (error) {
       console.error('Failed to save permission:', error);
     }
@@ -104,13 +90,20 @@ export default function PermissionsPage() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this permission?')) {
       try {
-        await permissionsApi.deletePermission(id);
-        loadPermissions();
+        await deletePermission(id);
       } catch (error) {
         console.error('Failed to delete permission:', error);
       }
     }
   };
+
+  if (loading) {
+    return <Box sx={{ p: 3 }}>Loading...</Box>;
+  }
+
+  if (error) {
+    return <Box sx={{ p: 3, color: 'error.main' }}>Error: {error}</Box>;
+  }
 
   return (
     <Box sx={{ p: 3 }}>

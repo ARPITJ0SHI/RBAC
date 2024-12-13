@@ -39,7 +39,7 @@ function PrivateRoute({ children }) {
 function AuthenticatedApp() {
   const { user } = useAuth();
   
-  // Redirect non-admin users to restricted page
+ 
   if (user?.role !== 'admin') {
     return <Navigate to="/restricted" />;
   }

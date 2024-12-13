@@ -8,22 +8,22 @@ exports.getActivities = async (req, res, next) => {
 
     let query = {};
 
-    // Filter by user if specified
+
     if (req.query.userId) {
       query.userId = req.query.userId;
     }
 
-    // Filter by action if specified
+
     if (req.query.action) {
       query.action = req.query.action;
     }
 
-    // Filter by status if specified
+
     if (req.query.status) {
       query.status = req.query.status;
     }
 
-    // Filter by date range if specified
+
     if (req.query.startDate || req.query.endDate) {
       query.createdAt = {};
       if (req.query.startDate) {

@@ -92,10 +92,10 @@ export default function RoleManagement() {
       console.log('Received roles data:', rolesData);
       console.log('Received permissions data:', permissionsData);
       
-      // Ensure we have valid arrays
+    
       const processedRoles = Array.isArray(rolesData) ? rolesData : [];
       
-      // Initialize empty arrays for undefined properties
+    
       const normalizedRoles = processedRoles.map(role => {
         console.log('Processing role:', role);
         return {
@@ -313,7 +313,7 @@ export default function RoleManagement() {
   };
 
   const renderRoleHierarchy = (roles) => {
-    // Sort roles by number of permissions
+    
     const sortedRoles = [...roles].sort((a, b) => 
       (b.permissions?.length || 0) - (a.permissions?.length || 0)
     );

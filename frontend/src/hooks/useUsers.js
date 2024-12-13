@@ -8,11 +8,11 @@ export function useUsers() {
   const [error, setError] = useState(null);
   const [lastFetched, setLastFetched] = useState(null);
 
-  // Cache duration in milliseconds (5 minutes)
+
   const CACHE_DURATION = 5 * 60 * 1000;
 
   const fetchUsers = useCallback(async (forceFetch = false) => {
-    // Return cached data if within cache duration
+  
     if (!forceFetch && lastFetched && Date.now() - lastFetched < CACHE_DURATION) {
       return state.users;
     }
@@ -37,16 +37,16 @@ export function useUsers() {
       setLoading(true);
       setError(null);
       
-      // Optimistic update
+     
       const tempId = Date.now().toString();
       const optimisticUser = { ...userData, id: tempId, status: 'pending' };
       actions.addUser(optimisticUser);
 
       const newUser = await userApi.createUser(userData);
-      actions.updateUser(newUser); // Replace optimistic with real data
+      actions.updateUser(newUser); 
       return newUser;
     } catch (err) {
-      // Rollback optimistic update
+
       actions.deleteUser(tempId);
       setError(err.message);
       throw err;
@@ -60,7 +60,7 @@ export function useUsers() {
       setLoading(true);
       setError(null);
 
-      // Optimistic update
+  
       const oldUser = state.users.find(u => u.id === id);
       actions.updateUser({ ...oldUser, ...userData, status: 'updating' });
 
@@ -68,7 +68,7 @@ export function useUsers() {
       actions.updateUser(updatedUser);
       return updatedUser;
     } catch (err) {
-      // Rollback optimistic update
+     
       if (oldUser) actions.updateUser(oldUser);
       setError(err.message);
       throw err;
@@ -82,13 +82,13 @@ export function useUsers() {
       setLoading(true);
       setError(null);
 
-      // Optimistic update
+    
       const userToDelete = state.users.find(u => u.id === id);
       actions.deleteUser(id);
 
       await userApi.deleteUser(id);
     } catch (err) {
-      // Rollback optimistic update
+     
       if (userToDelete) actions.addUser(userToDelete);
       setError(err.message);
       throw err;

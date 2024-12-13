@@ -176,7 +176,7 @@ export default function Layout({ children }) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true, 
           }}
           sx={{
             display: { xs: 'block', md: 'none' },
@@ -211,7 +211,7 @@ export default function Layout({ children }) {
           flexGrow: 1,
           p: 3,
           width: { md: `calc(100% - ${DRAWER_WIDTH}px)` },
-          mt: '64px', // Height of AppBar
+          mt: '64px',
         }}
       >
         {children}

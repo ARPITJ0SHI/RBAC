@@ -10,17 +10,14 @@ exports.getAllUsers = async (req, res, next) => {
 
     let query = {};
 
-    // Filter by status if specified
     if (req.query.status) {
       query.status = req.query.status;
     }
 
-    // Filter by role if specified
     if (req.query.role) {
       query.role = req.query.role;
     }
 
-    // Search by name or email
     if (req.query.search) {
       query.$or = [
         { name: { $regex: req.query.search, $options: 'i' } },
@@ -78,7 +75,6 @@ exports.createUser = async (req, res, next) => {
   try {
     const { email, password, name, role } = req.body;
 
-    // Check if role exists
     const roleExists = await Role.findById(role);
     if (!roleExists) {
       return res.status(400).json({
@@ -87,7 +83,6 @@ exports.createUser = async (req, res, next) => {
       });
     }
 
-    // Generate a random password if not provided by admin
     const finalPassword = password || Math.random().toString(36).slice(-8);
 
     const user = await User.create({
@@ -111,7 +106,7 @@ exports.createUser = async (req, res, next) => {
         email: user.email,
         name: user.name,
         role: user.role,
-        generatedPassword: password ? undefined : finalPassword, // Only send back if we generated it
+        generatedPassword: password ? undefined : finalPassword, 
       },
     });
   } catch (err) {
@@ -123,7 +118,6 @@ exports.updateUser = async (req, res, next) => {
   try {
     const { password, role, permissions, ...updateData } = req.body;
     
-    // Prevent any role or permission updates through this endpoint
     if (role || permissions) {
       return res.status(400).json({
         success: false,
@@ -131,7 +125,6 @@ exports.updateUser = async (req, res, next) => {
       });
     }
 
-    // If password is provided, hash it
     if (password) {
       const salt = await bcrypt.genSalt(10);
       updateData.password = await bcrypt.hash(password, salt);
@@ -179,7 +172,6 @@ exports.updateUserRole = async (req, res, next) => {
       });
     }
 
-    // Verify the role exists
     const roleExists = await Role.findById(role);
     if (!roleExists) {
       return res.status(400).json({
@@ -188,7 +180,6 @@ exports.updateUserRole = async (req, res, next) => {
       });
     }
 
-    // Update only the role field
     const user = await User.findByIdAndUpdate(
       req.params.id,
       { role },
@@ -231,7 +222,6 @@ exports.deleteUser = async (req, res, next) => {
       });
     }
 
-    // Store user info for activity log
     const userInfo = {
       name: user.name,
       email: user.email,
@@ -320,7 +310,6 @@ exports.bulkAssignRole = async (req, res, next) => {
   try {
     const { userIds, roleId } = req.body;
 
-    // Verify role exists
     const role = await Role.findById(roleId);
     if (!role) {
       return res.status(400).json({
